@@ -1,0 +1,22 @@
+<html>
+
+<head>
+    <title>All Posts</title>
+</head>
+
+<body>
+    <h1>{{author.name}}</h1>
+    <h3>Mobile number: {{author.mobile_number}}</h3>
+    <br>
+    <hr>
+    <br>
+    <h1>{{author.name}}'s posts</h1>
+    {% for post in posts %}
+    <h2><a href="{% url 'view_post' pk=post.pk %}">{{post.title}}</a></h2>
+    <p><i>{{post.body|truncatewords:50}}</i></p>
+    <br>
+    <hr>
+    {% endfor %}
+</body>
+
+</html>

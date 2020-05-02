@@ -1,0 +1,21 @@
+<html>
+
+<head>
+    <title>Create Post</title>
+</head>
+
+<body>
+    <p>Create a post</p>
+    <form method='POST' action='/create_post/'>
+        {%csrf_token%}
+        <h5>Title</h5>
+        <input type='text' name='title' required>
+        <br>
+        <h5>Content</h5>
+        <textarea type='text' name='content' required></textarea>
+        <br>
+        <button type='submit' name='Publish'>Publish</button>
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>Post</title>
+    </head>
+    <body>
+        <h2>{{post.title}}</h2>
+        <hr>
+        <p>{{post.body}}</p>
+        <hr>
+        <h4><a href="/author_profile/{{author.user.username}}">{{author.name}}</a></h4>
+        <br>
+        <hr>
+        <form method='POST' action='/view_post/{{post.pk}}'>
+            {%csrf_token%}
+            <h3>Write a comment</h3>
+            <textarea type='text' name="body"></textarea>
+            <button type='submit' name='Comment'>Comment</button>
+        </form>
+        <br>
+        <hr>
+        <h3>Comments on this post - </h3>
+        {% for comment in comments %}
+            <hr>
+            <p>{{comment.body}}</p>
+            <h5><a href="/author_profile/{{comment.author.user.username}}">{{comment.author.name}}</a></h5>
+        {% endfor %}
+    </body>
+</html>
